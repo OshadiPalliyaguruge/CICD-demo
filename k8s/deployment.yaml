@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: cicd-demo
-        image: ghcr.io/OshadiPalliyaguruge/cicd-demo:latest
+        image: ghcr.io/oshadipalliyaguruge/cicd-demo:latest
         ports:
         - containerPort: 3000
