@@ -30,12 +30,12 @@ jobs:
 
       - name: Containerize app (Docker build)
         run: |
-          docker build -t CICD-demo .
+          docker build -t cicd-demo .
       
       - name: Security scan with Trivy
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'CICD-demo:latest'
+          image-ref: 'cicd-demo:latest'
           format: 'table'
           exit-code: '0'
           ignore-unfixed: true
