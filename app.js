@@ -6,6 +6,11 @@ app.get("/", (req, res) => {
   res.send("Hello from DevSecOps CI/CD Pipeline");
 });
 
-app.listen(port, () => {
-  console.log(`App running at http://localhost:${port}`);
-});
+// Export the app, do NOT listen here
+module.exports = app;
+
+// Only start server if run directly (not when imported for tests)
+if (require.main === module) {
+  const port = 3000;
+  app.listen(port, () => console.log(`App running at http://localhost:${port}`));
+}
