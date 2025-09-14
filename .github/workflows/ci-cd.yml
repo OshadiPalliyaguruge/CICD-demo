@@ -63,6 +63,12 @@ jobs:
           with:
             version: 'latest'
 
+        - name: Install GKE Auth Plugin
+          run: |
+            curl -Lo gke-gcloud-auth-plugin https://storage.googleapis.com/gke-auth-plugin/latest/linux_amd64/gke-gcloud-auth-plugin
+            chmod +x gke-gcloud-auth-plugin
+            sudo mv gke-gcloud-auth-plugin /usr/local/bin/
+
         - name: Configure Kubeconfig
           run: |
             mkdir -p $HOME/.kube
