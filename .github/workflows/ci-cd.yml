@@ -58,7 +58,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      - name: Set up Google Cloud
+      - name: Set up Google Cloud and authenticate
         uses: google-github-actions/setup-gcloud@v2
         with:
           project_id: ${{ secrets.GCP_PROJECT_ID }}
@@ -68,8 +68,7 @@ jobs:
       - name: Get GKE credentials
         run: |
           gcloud container clusters get-credentials cicd-demo \
-            --zone us-central1-a \
-            --project ${{ secrets.GCP_PROJECT_ID }}
+            --zone us-central1-a
 
       - name: Deploy to Kubernetes
         run: |
